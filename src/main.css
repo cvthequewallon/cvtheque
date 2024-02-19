@@ -1,0 +1,7 @@
+/*
+
+To execute your style, enter this command on your Visual studio code terminal 
+
+npx tailwindcss -i ./src/input.css -o ./src/main.css --watch
+
+*/
