@@ -1,5 +1,22 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.4.1"
-  }
+  },
+  "name": "cvtheque",
+  "description": "",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tailwindcss -i ./stylesheets/input.css -o ./stylesheets/main.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cvthequewallon/cvtheque.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cvthequewallon/cvtheque/issues"
+  },
+  "homepage": "https://github.com/cvthequewallon/cvtheque#readme"
 }
