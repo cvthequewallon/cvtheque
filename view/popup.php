@@ -15,7 +15,8 @@
              ██ ██ ██    ██ ██  ██ ██     ██    ██ ██          ██      ██    ██ ██  ██  ██ ██      ██   ██ ██  ██ ██    ██    
         ███████ ██  ██████  ██   ████      ██████  ██           ██████  ██████  ██      ██ ██      ██   ██ ██   ████    ██      
         -->
-        <form hidden class=" mt-5 px-3 max-w-fit m-auto" id="formSignUpCompany" action="controller/signUp.php" method="post">
+        <form hidden class=" mt-5 px-3 max-w-fit m-auto" id="formSignUpCompany" action="controller/signUp.php"
+            method="post">
 
             <p class=" mx-auto w-fit mt-3 " id="titleSignUpCompany"></p>
 
@@ -30,17 +31,17 @@
                     Entreprise
                 </a>
             </div>
-            <!-- first name -->
+            <!-- company name -->
             <div class=" mb-5 text-center">
-                <label>prénom : </label>
-                <input value="" class=" border-2 text-xl " size="25" type="text" id="first_name" required
-                    name="first_name" minlength="4">
+                <label>Nom de l'entreprise : </label>
+                <input value="" class=" border-2 text-xl " size="25" type="text" id="companyName" required
+                    name="companyName" minlength="4">
             </div>
-            <!-- last name -->
+            <!-- siren -->
             <div class=" mb-5 text-center">
-                <label>nom de famille : </label>
-                <input value="" class=" border-2 text-xl " size="25" type="text" id="last_name" required
-                    name="last_name" minlength="4">
+                <label>SIREN : </label>
+                <input value="" class=" border-2 text-xl " size="25" type="text" id="siren" required name="siren"
+                    minlength="4" maxlength="35">
             </div>
             <!-- mail -->
             <div class=" mb-5 text-center">
@@ -59,11 +60,6 @@
                 <label>téléphone : </label>
                 <input value="" class=" border-2 text-xl " size="25" type="tel" required id="phone" name="phone"
                     minlength="10">
-            </div>
-            <!-- birthday -->
-            <div class=" mb-5 text-center">
-                <label>date de naissance : </label>
-                <input value="" class=" border-2 text-xl " size="25" type="date" required id="birthday" name="birthday">
             </div>
             <!-- town -->
             <div class=" mb-5 text-center">
@@ -100,7 +96,8 @@
              ██ ██ ██    ██ ██  ██ ██     ██    ██ ██               ██    ██    ██    ██ ██   ██ ██      ██  ██ ██    ██    
         ███████ ██  ██████  ██   ████      ██████  ██          ███████    ██     ██████  ██████  ███████ ██   ████    ██                              
         -->
-        <form hidden class=" mt-5 px-3 max-w-fit m-auto " id="formSignUpStudent" action="controller/signUp.php" method="post">
+        <form hidden class=" mt-5 px-3 max-w-fit m-auto " id="formSignUpStudent" action="controller/signUp.php"
+            method="post">
 
             <p class=" mx-auto w-fit mt-3" id="titleSignUpStudent"></p>
 
@@ -114,17 +111,18 @@
                 </button>
             </div>
 
-            <!-- company name -->
+
+            <!-- first name -->
             <div class=" mb-5 text-center">
-                <label>Nom de l'entreprise : </label>
-                <input value="" class=" border-2 text-xl " size="25" type="text" id="companyName" required
-                    name="companyName" minlength="4">
+                <label>prénom : </label>
+                <input value="" class=" border-2 text-xl " size="25" type="text" id="first_name" required
+                    name="first_name" minlength="4">
             </div>
-            <!-- siren -->
+            <!-- last name -->
             <div class=" mb-5 text-center">
-                <label>SIREN : </label>
-                <input value="" class=" border-2 text-xl " size="25" type="text" id="siren" required
-                    name="siren" minlength="4"maxlength="35">
+                <label>nom de famille : </label>
+                <input value="" class=" border-2 text-xl " size="25" type="text" id="last_name" required
+                    name="last_name" minlength="4">
             </div>
             <!-- mail -->
             <div class=" mb-5 text-center">
@@ -143,6 +141,11 @@
                 <label>téléphone : </label>
                 <input value="" class=" border-2 text-xl " size="25" type="tel" required id="phone" name="phone"
                     minlength="10">
+            </div>
+            <!-- birthday -->
+            <div class=" mb-5 text-center">
+                <label>date de naissance : </label>
+                <input value="" class=" border-2 text-xl " size="25" type="date" required id="birthday" name="birthday">
             </div>
             <!-- town -->
             <div class=" mb-5 text-center">

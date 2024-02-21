@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVThèque</title>
-    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
 
     <!-- POP UP JS LINK-->
-    <script src="/js/popupSign.js" defer></script>
+    <script src="js/popupSign.js" defer></script>
 </head>
 <body>
     
