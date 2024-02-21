@@ -8,7 +8,7 @@ function sanitize($data) {
     return $data;
 }
 
-if(isset($_POST['user'])) {
+if(isset($_POST['submitStudent'])) {
 
     // Recuperation des info user
     $first_name = sanitize($_POST['first_name'] ?? "");
@@ -50,7 +50,7 @@ if(isset($_POST['user'])) {
             echo "Erreur lors de l'inscription : " . $e->getMessage();
         }
     }
-}else if(isset($_POST['company'])) 
+}else if(isset($_POST['submitCompany'])) 
 {
 
     // Recuperation des info company
