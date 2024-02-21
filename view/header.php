@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVThèque</title>
     <link rel="stylesheet" href="/stylesheets/main.css">
+
+    <!-- POP UP JS LINK-->
+    <script src="/js/popupSign.js" defer></script>
 </head>
 <body>
     
@@ -14,7 +17,11 @@
 
         <ul class=" list-none">
             <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">Accueil</li>
-            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">Se connecter</li>
+            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">
+                <button id="btnSignInStudent" button_type="btnSignInStudent" alt="bouton de connexion" type="submit">
+                    Se connecter
+                </button>
+            </li>
             <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">En savoir plus</li>
         </ul>
 

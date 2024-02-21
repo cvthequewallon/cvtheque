@@ -1,5 +1,5 @@
 <?php include_once "view/header.php";?>
 
-<h1>ceci est la page home</h1>
+<?php require "view/popup.php"; ?>
 
 <?php include_once "view/footer.php"; ?>
