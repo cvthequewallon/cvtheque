@@ -4,18 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     //all butons of the homepage in a list    
     const buttonsList = document.querySelectorAll("button");
     //Boutons Sign In, Sign In
-    const btnSignIn = document.getElementById('btnSignIn');
+    const btnSignUp = document.getElementById('btnSignUp');
     const closePopupBtn = document.getElementById('closePopupBtn');
     const popup = document.getElementById('popup');
     const backgroundShadow = document.getElementById('backgroundShadow');
 
     //Content pop-up for modify and remove
-    let titleSignInStudent = document.getElementById("titleSignInStudent");
+    let titleSignUpStudent = document.getElementById("titleSignUpStudent");
 
     //FORM SIGN IN COMPANY
-    let formSignInCompany = document.getElementById("formSignInCompany");
+    let formSignUpCompany = document.getElementById("formSignUpCompany");
     //FORM SIGN IN STUDENT
-    let formSignInStudent = document.getElementById("formSignInStudent");
+    let formSignUpStudent = document.getElementById("formSignUpStudent");
 
     
     buttonsList.forEach(element => {
@@ -23,34 +23,34 @@ document.addEventListener('DOMContentLoaded', () => {
             return "error";
         }
 
-        //███████ ██  ██████  ███    ██     ██ ███    ██      ██████  ██████  ███    ███ ██████   █████  ███    ██ ██    ██ 
-        //██      ██ ██       ████   ██     ██ ████   ██     ██      ██    ██ ████  ████ ██   ██ ██   ██ ████   ██  ██  ██  
-        //███████ ██ ██   ███ ██ ██  ██     ██ ██ ██  ██     ██      ██    ██ ██ ████ ██ ██████  ███████ ██ ██  ██   ████   
-        //     ██ ██ ██    ██ ██  ██ ██     ██ ██  ██ ██     ██      ██    ██ ██  ██  ██ ██      ██   ██ ██  ██ ██    ██    
-        //███████ ██  ██████  ██   ████     ██ ██   ████      ██████  ██████  ██      ██ ██      ██   ██ ██   ████    ██    
-        if (element.getAttribute('button_type') == "btnSignInCompany") {
+        //███████ ██  ██████  ███    ██     ██    ██ ██████       ██████  ██████  ███    ███ ██████   █████  ███    ██ ██    ██ 
+        //██      ██ ██       ████   ██     ██    ██ ██   ██     ██      ██    ██ ████  ████ ██   ██ ██   ██ ████   ██  ██  ██  
+        //███████ ██ ██   ███ ██ ██  ██     ██    ██ ██████      ██      ██    ██ ██ ████ ██ ██████  ███████ ██ ██  ██   ████   
+        //     ██ ██ ██    ██ ██  ██ ██     ██    ██ ██          ██      ██    ██ ██  ██  ██ ██      ██   ██ ██  ██ ██    ██    
+        //███████ ██  ██████  ██   ████      ██████  ██           ██████  ██████  ██      ██ ██      ██   ██ ██   ████    ██             
+        if (element.getAttribute('button_type') == "btnSignUpCompany") {
             element.addEventListener('click', () => {
 
                 popup.style.display = 'table';
                 backgroundShadow.classList.remove('hidden');
 
                 // Change style of title
-                titleSignInCompany.textContent = "Se connecter en tant qu'entreprise";
+                titleSignUpCompany.textContent = "S'inscrire en tant qu'entreprise";
 
                 //Show content form sign in student
-                formSignInCompany.style.display = 'block';
+                formSignUpCompany.style.display = 'block';
                 
                 //Hide content form sign in student 
-                formSignInStudent.style.display = 'none';
+                formSignUpStudent.style.display = 'none';
             });
         };
 
-        //███████ ██  ██████  ███    ██     ██ ███    ██     ███████ ████████ ██    ██ ██████  ███████ ███    ██ ████████ 
-        //██      ██ ██       ████   ██     ██ ████   ██     ██         ██    ██    ██ ██   ██ ██      ████   ██    ██    
-        //███████ ██ ██   ███ ██ ██  ██     ██ ██ ██  ██     ███████    ██    ██    ██ ██   ██ █████   ██ ██  ██    ██    
-        //     ██ ██ ██    ██ ██  ██ ██     ██ ██  ██ ██          ██    ██    ██    ██ ██   ██ ██      ██  ██ ██    ██    
-        //███████ ██  ██████  ██   ████     ██ ██   ████     ███████    ██     ██████  ██████  ███████ ██   ████    ██   
-        if (element.getAttribute('button_type') == "btnSignInStudent") {
+        //███████ ██  ██████  ███    ██     ██    ██ ██████      ███████ ████████ ██    ██ ██████  ███████ ███    ██ ████████ 
+        //██      ██ ██       ████   ██     ██    ██ ██   ██     ██         ██    ██    ██ ██   ██ ██      ████   ██    ██    
+        //███████ ██ ██   ███ ██ ██  ██     ██    ██ ██████      ███████    ██    ██    ██ ██   ██ █████   ██ ██  ██    ██    
+        //     ██ ██ ██    ██ ██  ██ ██     ██    ██ ██               ██    ██    ██    ██ ██   ██ ██      ██  ██ ██    ██    
+        //███████ ██  ██████  ██   ████      ██████  ██          ███████    ██     ██████  ██████  ███████ ██   ████    ██              
+        if (element.getAttribute('button_type') == "btnSignUpStudent") {
 
             element.addEventListener('click', () => {
                 
@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 backgroundShadow.classList.remove('hidden');
 
                 // Change style of title
-                titleSignInStudent.textContent = "Se connecter en tant qu'étudiant";
+                titleSignUpStudent.textContent = "S'inscrire en tant qu'étudiant";
 
                 //Show content form sign in student
-                formSignInStudent.style.display = 'block';
+                formSignUpStudent.style.display = 'block';
                 
                 //Hide content form sign in company
-                formSignInCompany.style.display = 'none';
+                formSignUpCompany.style.display = 'none';
                 
             });
         };
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //██      ██      ██    ██ ███████ █████   
     //██      ██      ██    ██      ██ ██      
     // ██████ ███████  ██████  ███████ ███████ 
-    if (btnSignInStudent && closePopupBtn && popup) {
+    if (btnSignUpStudent && closePopupBtn && popup) {
         closePopupBtn.addEventListener('click', () => {
             popup.style.display = 'none';
             backgroundShadow.classList.add('hidden');

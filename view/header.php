@@ -16,14 +16,23 @@
         <img src="" alt="logo du site">
 
         <ul class=" list-none">
-            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">Accueil</li>
-            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">
-                <button id="btnSignInStudent" button_type="btnSignInStudent" alt="bouton de connexion" type="submit">
-                    Se connecter
-                </button>
-            </li>
-            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">En savoir plus</li>
-        </ul>
 
+            <!-- HOME -->
+            <a href="index.php">
+                <li class="mx-1 inline border rounded-xl p-1 px-2">Accueil</li>
+            </a>
+
+            <!-- SIGN UP -->
+            <button id="btnSignUpStudent" button_type="btnSignUpStudent" alt="bouton d'inscription" type="submit">
+                <li class="mx-1 inline border rounded-xl p-1 px-2"> S'inscrire</li>
+            </button>
+
+            <!-- ABOUT -->
+            <a href="">
+                <li class="mx-1 inline border rounded-xl p-1 px-2">
+                    En savoir plus
+                </li>
+            </a>
+        </ul>
     </div>
 </header>
