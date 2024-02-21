@@ -9,13 +9,13 @@
 <body>
     
 <header>
-    <div>
+    <div class="px-4 flex items-center bg-slate-600 justify-between py-4">
         <img src="" alt="logo du site">
 
         <ul class=" list-none">
-            <li class=" text-blue-600">Accueil</li>
-            <li>Se connecter</li>
-            <li>En savoir plus</li>
+            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">Accueil</li>
+            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">Se connecter</li>
+            <li class="mx-1 inline border rounded-xl p-1 px-2 hover:">En savoir plus</li>
         </ul>
 
     </div>
