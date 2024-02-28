@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/cvthequewallon/cvtheque/issues"
   },
-  "homepage": "https://github.com/cvthequewallon/cvtheque#readme"
+  "homepage": "https://github.com/cvthequewallon/cvtheque#readme",
+  "dependencies": {
+    "flowbite": "^2.3.0",
+    "lucide": "^0.336.0"
+  }
 }
