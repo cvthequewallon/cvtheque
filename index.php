@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CVThèque</title>
     <link rel="stylesheet" href="/stylesheets/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </head>
@@ -18,7 +18,7 @@
                         <div>
                             <h1 class="text-5xl font-bold">UN CV,<br> UN STAGE</h1>
                             <p class="text-lg my-10">Créer , éditer , publier, Faites de vos CV une simplicité</p>
-                            <a href="" class="text-[#2d3d33] bg-white rounded-full p-4 font-bold">Commencer</a>
+                            <a href="/view/auth.php" class="text-[#2d3d33] bg-white rounded-full p-4 font-bold">Commencer</a>
                         </div>
                     </div>
                     <div class="col-span-1">
