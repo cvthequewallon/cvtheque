@@ -31,3 +31,10 @@ CREATE TABLE `teacher_signin` (
   `password` varchar(60) DEFAULT null,
   `signin_since` timestamp NOT NULL DEFAULT (current_timestamp())
 );
+
+CREATE TABLE `waiting_list` (
+  `id_admin` int(10) PRIMARY KEY NOT NULL,
+  `mail` varchar(255) DEFAULT null,
+  `password` varchar(60) DEFAULT null,
+  `waiting_since` timestamp NOT NULL DEFAULT (current_timestamp())
+);
