@@ -31,5 +31,6 @@
     </header>
     <main class='min-h-screen'>
     </main>
+        <?php include 'components/footer.php'; ?>
 </body>
 </html>
