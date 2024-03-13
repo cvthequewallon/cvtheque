@@ -1,5 +1,5 @@
-<?php include_once "view/header.php";?>
+<?php include_once "../header.php";?>
 
-<?php require "view/popup.php"; ?>
+<?php require "../popup.php"; ?>
 
-<?php include_once "view/footer.php"; ?>
+<?php include_once "../footer.php"; ?>
