@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'inscrire</title>
-    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </head>
 
@@ -131,14 +131,14 @@
                 <div class="mb-5">
                     <label for="companyName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Nom de l'entreprise</label>
-                    <input type="email" id="companyName" name="companyName"
+                    <input type="text" id="companyName" name="companyName"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required />
                 </div>
                 <div class="mb-5">
                     <label for="siren" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         SIREN</label>
-                    <input type="email" id="siren" name="siren"
+                    <input type="number" id="siren" name="siren"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required />
                 </div>

@@ -91,7 +91,7 @@ if(isset($_POST['submitStudent'])) {
 
                 if ($stmt->rowCount() > 0) {
                     $pdo->commit();
-                    header('location:../view/registerForm.html');
+                    header('location:../index.php');
                 } else {
                     echo "Erreur lors de l'inscription.";
                 }
