@@ -3,14 +3,15 @@ require "pdo.php";
 session_start();
 
 function checkEmailExistence($mail, $table = "user_signin") {
-    $stmt = $pdo->prepare("SELECT mail FROM ? WHERE mail = :mail");
-    $stmt->execute([$table, ":mail" => $mail]);
+    require "pdo.php";
+    $stmt = $pdo->prepare("SELECT mail FROM $table WHERE mail = :mail");
+    $stmt->execute([":mail" => $mail]);
     return $stmt->fetchColumn(); // Returns mail if found, otherwise null
   }
   
   // Example usage:
   $mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) ?? "";
-  $password = sanitize($_POST['password'] ?? "");
+  $password = $_POST['password'] ?? "";
   
   // Check for user email:
   if (checkEmailExistence($mail)) {
@@ -30,10 +31,26 @@ function checkEmailExistence($mail, $table = "user_signin") {
       echo "Erreur lors de la connexion : " . $e->getMessage();
   }
   }
-  
+
   // Check for company email:
   if (checkEmailExistence($mail, "company_signin")) {
-    echo "Company email exists";
+    // Try for select id & password
+    try {
+      $stmt = $pdo->prepare("SELECT id_company ,password from company_signin where mail = :mail");
+      $stmt->execute([":mail" => $mail]);
+      $result = $stmt->fetch();
+      if(password_verify($password ,$result['password']))
+      {
+        // Store the user id
+        $_SESSION['id_company'] = $result['id_company'];
+        echo $_SESSION['id_company'];
+      }
+    } catch (PDOException $e) {
+      $db->rollBack();
+      echo "Erreur lors de la connexion : " . $e->getMessage();
+  }
+  }else {
+    Echo "Identifiant ou mot de passe invalide";
   }
 
 ?>

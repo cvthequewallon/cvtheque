@@ -15,7 +15,11 @@
              ██ ██ ██    ██ ██  ██ ██     ██    ██ ██          ██      ██    ██ ██  ██  ██ ██      ██   ██ ██  ██ ██    ██    
         ███████ ██  ██████  ██   ████      ██████  ██           ██████  ██████  ██      ██ ██      ██   ██ ██   ████    ██      
         -->
+<<<<<<< Updated upstream
         <form hidden class=" mt-5 px-3 max-w-fit m-auto" id="formSignUpCompany" action="../controller/signUp.php"
+=======
+        <form hidden class=" mt-5 px-3 max-w-fit m-auto" id="formSignUpCompany" action="../../controller/signUp.php"
+>>>>>>> Stashed changes
             method="post">
 
             <p class=" mx-auto w-fit mt-3 " id="titleSignUpCompany"></p>
@@ -96,7 +100,7 @@
              ██ ██ ██    ██ ██  ██ ██     ██    ██ ██               ██    ██    ██    ██ ██   ██ ██      ██  ██ ██    ██    
         ███████ ██  ██████  ██   ████      ██████  ██          ███████    ██     ██████  ██████  ███████ ██   ████    ██                              
         -->
-        <form hidden class=" mt-5 px-3 max-w-fit m-auto " id="formSignUpStudent" action="controller/signUp.php"
+        <form hidden class=" mt-5 px-3 max-w-fit m-auto " id="formSignUpStudent" action="../../controller/signUp.php"
             method="post">
 
             <p class=" mx-auto w-fit mt-3" id="titleSignUpStudent"></p>
@@ -116,13 +120,13 @@
             <div class=" mb-5 text-center">
                 <label>prénom : </label>
                 <input value="" class=" border-2 text-xl " size="25" type="text" id="first_name" required
-                    name="first_name" minlength="4">
+                    name="first_name">
             </div>
             <!-- last name -->
             <div class=" mb-5 text-center">
                 <label>nom de famille : </label>
                 <input value="" class=" border-2 text-xl " size="25" type="text" id="last_name" required
-                    name="last_name" minlength="4">
+                    name="last_name">
             </div>
             <!-- mail -->
             <div class=" mb-5 text-center">
