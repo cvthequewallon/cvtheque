@@ -49,8 +49,27 @@ function checkEmailExistence($mail, $table = "user_signin") {
       $db->rollBack();
       echo "Erreur lors de la connexion : " . $e->getMessage();
   }
-  }else {
-    Echo "Identifiant ou mot de passe invalide";
-  }
+}
+  // Check for teacher email:
+    if (checkEmailExistence($mail, "teacher_signin")) {
+      // Try for select id & password
+      try {
+        $stmt = $pdo->prepare("SELECT id_admin, password from teacher_signin where mail = :mail");
+        $stmt->execute([":mail" => $mail]);
+        $result = $stmt->fetch();
+        if($result['password'] == $password )
+      {
+        // Store the user id
+        $_SESSION['id_admin'] = $result['id_admin'];
+        echo $_SESSION['id_admin'];
+      }
+    } catch (PDOException $e) {
+      $db->rollBack();
+      echo "Erreur lors de la connexion : " . $e->getMessage();
+    }
+    }else {
+      Echo "Identifiant ou mot de passe invalide";
+    }
+
 
 ?>
