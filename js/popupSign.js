@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     //all butons of the homepage in a list    
     const buttonsList = document.querySelectorAll("button");
-    //Boutons Sign In, Sign In
+    //Boutons Sign Up
     const btnSignUp = document.getElementById('btnSignUp');
     const closePopupBtn = document.getElementById('closePopupBtn');
     const popup = document.getElementById('popup');
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //Content pop-up for modify and remove
     let titleSignUpStudent = document.getElementById("titleSignUpStudent");
 
-    //FORM SIGN IN COMPANY
+    //FORM SIGN UP COMPANY
     let formSignUpCompany = document.getElementById("formSignUpCompany");
-    //FORM SIGN IN STUDENT
+    //FORM SIGN UP STUDENT
     let formSignUpStudent = document.getElementById("formSignUpStudent");
 
     

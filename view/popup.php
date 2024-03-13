@@ -15,7 +15,7 @@
              ██ ██ ██    ██ ██  ██ ██     ██    ██ ██          ██      ██    ██ ██  ██  ██ ██      ██   ██ ██  ██ ██    ██    
         ███████ ██  ██████  ██   ████      ██████  ██           ██████  ██████  ██      ██ ██      ██   ██ ██   ████    ██      
         -->
-        <form hidden class=" mt-5 px-3 max-w-fit m-auto" id="formSignUpCompany" action="controller/signUp.php"
+        <form hidden class=" mt-5 px-3 max-w-fit m-auto" id="formSignUpCompany" action="../controller/signUp.php"
             method="post">
 
             <p class=" mx-auto w-fit mt-3 " id="titleSignUpCompany"></p>
