@@ -25,8 +25,9 @@ CREATE TABLE `user_signin` (
   `signin_since` timestamp NOT NULL DEFAULT (current_timestamp())
 );
 
-CREATE TABLE `admin_signin` (
+CREATE TABLE `teacher_signin` (
   `id_admin` int(10) PRIMARY KEY NOT NULL,
-  `identifiant` varchar(255) DEFAULT null,
-  `password` varchar(60) DEFAULT null
+  `mail` varchar(255) DEFAULT null,
+  `password` varchar(60) DEFAULT null,
+  `signin_since` timestamp NOT NULL DEFAULT (current_timestamp())
 );
