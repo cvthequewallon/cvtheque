@@ -33,8 +33,14 @@ CREATE TABLE `teacher_signin` (
 );
 
 CREATE TABLE `waiting_list` (
-  `id_admin` int(10) PRIMARY KEY NOT NULL,
-  `mail` varchar(255) DEFAULT null,
+  `id_waiting` int(10) PRIMARY KEY NOT NULL,
+  `mail` varchar(120) DEFAULT null,
   `password` varchar(60) DEFAULT null,
+  `company_name` varchar(255) DEFAULT null,
+  `siren` bigint(100) DEFAULT null,
+  `phone` int(10) DEFAULT null,
+  `town` varchar(255) DEFAULT null,
+  `postcode` int(11) DEFAULT null,
+  `country` varchar(255) DEFAULT null,
   `waiting_since` timestamp NOT NULL DEFAULT (current_timestamp())
 );
