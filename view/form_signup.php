@@ -77,7 +77,7 @@
                 <div class="mb-5">
                     <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numéro de
                         téléphone</label>
-                    <input type="tel" id="phone" name="phone"
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required />
                 </div>
@@ -91,7 +91,7 @@
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="postcode" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Code
                             Postal</label>
-                        <input type="number" id="postcode" name="postcode"
+                        <input type="number" id="postcode" name="postcode" pattern="[0-9]{5}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required />
                     </div>
@@ -107,7 +107,7 @@
                 <div class="mb-5">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de
                         passe</label>
-                    <input type="password" id="password"
+                    <input type="password" id="password" maxlength="24" minlength="8"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required />
                 </div>
@@ -152,7 +152,7 @@
                 <div class="mb-5">
                     <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numéro de
                         téléphone</label>
-                    <input type="tel" id="phone" name="phone"
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required />
                 </div>
@@ -166,7 +166,7 @@
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="postcode" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Code
                             Postal</label>
-                        <input type="number" id="postcode" name="postcode"
+                        <input type="number" id="postcode" name="postcode" pattern="[0-9]{5}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required />
                     </div>
@@ -182,7 +182,7 @@
                 <div class="mb-5">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de
                         passe</label>
-                    <input type="password" id="password"
+                    <input type="password" id="password" maxlength="24" minlength="8"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required />
                 </div>
