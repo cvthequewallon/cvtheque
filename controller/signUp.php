@@ -77,7 +77,7 @@ if(isset($_POST['submitStudent'])) {
             try {
                 $pdo->beginTransaction();
 
-                $stmt = $pdo->prepare("INSERT INTO company_signin (company_name, siren, mail, password, phone, town, postcode, country, signin_since) VALUES (:company_name, :siren, :mail, :hashed_password, :phone, :town, :postcode, :country, CURRENT_TIMESTAMP)");
+                $stmt = $pdo->prepare("INSERT INTO waiting_list (company_name, siren, mail, password, phone, town, postcode, country, waiting_since) VALUES (:company_name, :siren, :mail, :hashed_password, :phone, :town, :postcode, :country, CURRENT_TIMESTAMP)");
                 $stmt->execute([
                     ':company_name' => $company_name,
                     ':siren' => $siren,
