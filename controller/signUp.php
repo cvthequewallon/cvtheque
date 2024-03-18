@@ -50,11 +50,10 @@ if(isset($_POST['submitStudent'])) {
             echo "Erreur lors de l'inscription : " . $e->getMessage();
         }
     }
-}else if(isset($_POST['submitCompany'])) 
-{
+}else if(isset($_POST['submitCompany'])) {
 
     // Recuperation des info company
-    $company_name = sanitize($_POST['companyName']??"");
+    $company_name = $_POST['companyName']??"";
     $siren = sanitize($_POST['siren']??"");
     $mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)??"";
     $password = sanitize($POST['password']??"");
@@ -70,34 +69,52 @@ if(isset($_POST['submitStudent'])) {
     $stmt = $pdo->prepare("SELECT mail FROM company_signin WHERE mail = :mail");
     $stmt->execute([':mail' => $mail]);
 
+    //generate SIREN of the social reason
+    $company_name = str_replace(' ', '%20', $company_name);
+    $endpoint = "https://recherche-entreprises.api.gouv.fr/search?q=$company_name&page=1&per_page=1";
+    $curl = curl_init($endpoint);
+    curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER => true]);
+    $data = json_decode(curl_exec($curl), true);
+
+    foreach($data['results'] as $result) {
+        echo $result['sirenVerify'], '<br>';
+    }                
+    curl_close($curl);
+    
     if ($stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "L'adresse e-mail est déjà utilisée.";
         exit();
     }else {
-            try {
-                $pdo->beginTransaction();
+            //verify SIREN of API
+            if($siren == $sirenVerify){
+                try {
+                    $pdo->beginTransaction();
 
-                $stmt = $pdo->prepare("INSERT INTO waiting_list (company_name, siren, mail, password, phone, town, postcode, country, waiting_since) VALUES (:company_name, :siren, :mail, :hashed_password, :phone, :town, :postcode, :country, CURRENT_TIMESTAMP)");
-                $stmt->execute([
-                    ':company_name' => $company_name,
-                    ':siren' => $siren,
-                    ':mail' => $mail,
-                    ':hashed_password' => $hashedPassword,
-                    ':phone' => $phone,
-                    ':town' => $town,
-                    ':postcode' => $postcode,
-                    ':country' => $country,
-                ]);
+                    $stmt = $pdo->prepare("INSERT INTO waiting_list (company_name, siren, mail, password, phone, town, postcode, country, waiting_since) VALUES (:company_name, :siren, :mail, :hashed_password, :phone, :town, :postcode, :country, CURRENT_TIMESTAMP)");
+                    $stmt->execute([
+                        ':company_name' => $company_name,
+                        ':siren' => $siren,
+                        ':mail' => $mail,
+                        ':hashed_password' => $hashedPassword,
+                        ':phone' => $phone,
+                        ':town' => $town,
+                        ':postcode' => $postcode,
+                        ':country' => $country,
+                    ]);
 
-                if ($stmt->rowCount() > 0) {
-                    $pdo->commit();
-                    header('location:../index.php');
-                } else {
-                    echo "Erreur lors de l'inscription.";
+                    if ($stmt->rowCount() > 0) {
+                        $pdo->commit();
+                        header('location:../index.php');
+                    } else {
+                        echo "Erreur lors de l'inscription.";
+                    }
+                } catch (PDOException $e) {
+                    $pdo->rollBack();
+                    echo "Erreur lors de l'inscription : " . $e->getMessage();
                 }
-            } catch (PDOException $e) {
-                $pdo->rollBack();
-                echo "Erreur lors de l'inscription : " . $e->getMessage();
+            }
+            else{
+                echo "Le numéro de SIREN saisi n'est pas le même que celui associé à votre raison sociale, veuillez vérifier votre raison sociale et réessayer";
             }
         }
     }

@@ -30,25 +30,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <p>
+        </div>     
             <?php
-                $siren = "COMPASS GROUP FRANCE"; //Mot-clé pour la recherche
-                $siren = str_replace(' ', '%20', $siren);
-                $endpoint = "https://recherche-entreprises.api.gouv.fr/search?q=$siren&page=1&per_page=1";
-                $curl = curl_init($endpoint);
-                curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER => true]);
-                $data = json_decode(curl_exec($curl), true);
+                //fonction verif 
 
-                foreach($data['results'] as $result) {
-                    echo $result['siren'], '<br>';
-                }                
-                curl_close($curl);
             ?>
-        </p>
-
-
     </header>
     <main class='min-h-screen'>
     </main>
