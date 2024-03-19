@@ -86,7 +86,7 @@ if(isset($_POST['submitStudent'])) {
         exit();
     }else {
             //verify SIREN of API
-           if($siren == $sirenVerify){
+           //if($siren == $sirenVerify){
                 try {
                     $pdo->beginTransaction();
 
@@ -113,9 +113,9 @@ if(isset($_POST['submitStudent'])) {
                     echo "Erreur lors de l'inscription : " . $e->getMessage();
                 }
             }
-            else{
+            /*else{
                 echo "Le numéro de SIREN saisi n'est pas le même que celui associé à votre raison sociale, veuillez vérifier votre raison sociale et réessayer";
             }
-        }
+        }*/
     }
 ?>

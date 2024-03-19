@@ -2,11 +2,13 @@
 session_start();
 require "pdo.php";
 
-if(isset($_POST["id_waiting"])) {
+$id_waiting = $_POST['id_waiting'];
+
+if(isset($_POST["Validate"])) {
     // Select informations from the waiting id of the company
     $query = "Select * from waiting_list where id_waiting = :id_waiting";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([":id_waiting"=>$_POST["id_waiting"]]);
+    $stmt->execute([":id_waiting"=>$id_waiting]);
 
     if($stmt->rowCount() > 0) {
         // Assignment of those informations into variables
@@ -41,8 +43,17 @@ if(isset($_POST["id_waiting"])) {
                         $pdo->commit();
                         Header('Location:../view/dashboard/waiting_company.php');
                     } else {
-                        echo "Erreur lors de l'inscription.";
+                        echo "Erreur lors de l'acceptation.";
                     }
+}
+elseif(isset($_POST['Refuse'])) {
+    // Delete informations from the waiting_list table
+    $query = "DELETE FROM `waiting_list` WHERE id_waiting = :id_waiting";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([":id_waiting"=>$id_waiting]);
+
+    Header("Location:../view/dashboard/waiting_company.php");
+
 }
 
 ?>
