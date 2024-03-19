@@ -62,6 +62,7 @@ function checkEmailExistence($mail, $table = "user_signin") {
         // Store the user id
         $_SESSION['id_admin'] = $result['id_admin'];
         echo $_SESSION['id_admin'];
+        header("Location:../view/dashboard/waiting_company.php");
       }
     } catch (PDOException $e) {
       $db->rollBack();

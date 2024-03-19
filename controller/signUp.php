@@ -86,7 +86,7 @@ if(isset($_POST['submitStudent'])) {
         exit();
     }else {
             //verify SIREN of API
-            if($siren == $sirenVerify){
+           if($siren == $sirenVerify){
                 try {
                     $pdo->beginTransaction();
 
