@@ -1,14 +1,16 @@
 <?php
+session_start();
 require_once "pdo.php";
 
 // Input validation and sanitization
-function sanitize($data) {
+function sanitize($data)
+{
     $data = trim($data);  // Remove whitespace
     $data = htmlspecialchars($data);  // Prevent XSS attacks
     return $data;
 }
 
-if(isset($_POST['submitStudent'])) {
+if (isset ($_POST['submitStudent'])) {
 
     // Recuperation des info user
     $first_name = sanitize($_POST['first_name'] ?? "");
@@ -31,8 +33,8 @@ if(isset($_POST['submitStudent'])) {
     if ($stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "L'adresse e-mail est déjà utilisée.";
         exit();
-    }else {
-    // Use prepared statements with placeholders for all values
+    } else {
+        // Use prepared statements with placeholders for all values
         try {
             $pdo->beginTransaction();
 
@@ -50,21 +52,22 @@ if(isset($_POST['submitStudent'])) {
             echo "Erreur lors de l'inscription : " . $e->getMessage();
         }
     }
-}else if(isset($_POST['submitCompany'])) {
+} else if (isset ($_POST['submitCompany'])) {
 
     // Recuperation des info company
-    $company_name = $_POST['companyName']??"";
-    $siren = sanitize($_POST['siren']??"");
-    $mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)??"";
-    $password = sanitize($POST['password']??"");
-    $phone = sanitize($_POST['phone']??"");
-    $town = sanitize($_POST['town']??"");
-    $postcode = sanitize($_POST['postcode']??"");
-    $country = sanitize($_POST['country']??"");
+    $company_name = $_POST['companyName'] ?? "";
+    $siren = sanitize($_POST['siren'] ?? "");
+    $mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) ?? "";
+    $password = sanitize($POST['password'] ?? "");
+    $phone = sanitize($_POST['phone'] ?? "");
+    $town = sanitize($_POST['town'] ?? "");
+    $postcode = sanitize($_POST['postcode'] ?? "");
+    $country = sanitize($_POST['country'] ?? "");
+    $sirenVerify = "";
 
     // Hash password using a strong algorithm
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    
+
     // Check for duplicate email
     $stmt = $pdo->prepare("SELECT mail FROM company_signin WHERE mail = :mail");
     $stmt->execute([':mail' => $mail]);
@@ -76,17 +79,18 @@ if(isset($_POST['submitStudent'])) {
     curl_setopt_array($curl, [CURLOPT_RETURNTRANSFER => true]);
     $data = json_decode(curl_exec($curl), true);
 
-    foreach($data['results'] as $result) {
-        echo $result['sirenVerify'], '<br>';
-    }                
+    foreach ($data['results'] as $result) {
+        $sirenVerify = $result['siren'];
+    }
     curl_close($curl);
-    
+
     if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "L'adresse e-mail est déjà utilisée.";
-        exit();
-    }else {
+        $_SESSION['messageSignValidation'] = "L'adressse mail est déjà utilisée";
+    } else {
+        //if social reason is not good SirenVerify is not defind
+        if ($sirenVerify == "") {
             //verify SIREN of API
-           if($siren == $sirenVerify){
+            if ($siren == $sirenVerify) {
                 try {
                     $pdo->beginTransaction();
 
@@ -112,10 +116,17 @@ if(isset($_POST['submitStudent'])) {
                     $pdo->rollBack();
                     echo "Erreur lors de l'inscription : " . $e->getMessage();
                 }
-            }
-            else{
-                echo "Le numéro de SIREN saisi n'est pas le même que celui associé à votre raison sociale, veuillez vérifier votre raison sociale et réessayer";
+                //if SIREN is not equal
+            } else {
+                $_SESSION['messageSignValidation'] = "Le numéro de SIREN saisi n'est pas le même que celui associé à votre raison sociale, veuillez vérifier votre raison sociale et réessayer";
+                header('location:../index.php');
             }
         }
+        //If siren is not defind
+        else {
+            $_SESSION['messageSignValidation'] = "Veuillez vérifier votre raison sociale et réessayer";
+            header('location:../index.php');
+        };
     }
+}
 ?>
