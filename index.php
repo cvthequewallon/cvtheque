@@ -30,7 +30,7 @@
                         <div>
                             <h1 class="text-5xl font-bold">UN CV,<br> UN STAGE</h1>
                             <p class="text-lg my-10">Créer , éditer , publier, Faites de vos CV une simplicité</p>
-                            <a href="view/form_signin.php"
+                            <a href="view/formSignIn.php"
                                 class="text-[#2d3d33] bg-white rounded-full p-4 font-bold">Commencer</a>
                         </div>
                     </div>

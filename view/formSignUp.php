@@ -1,3 +1,12 @@
+<?php
+    //MESSAGE OF INSCRIPTION
+    session_start();
+    if (isset ($_SESSION['messageSignValidation'])) {
+        echo "{$_SESSION['messageSignValidation']}";
+        unset($_SESSION["messageSignValidation"]);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,7 +19,7 @@
 </head>
 
 <body>
-    <div class="flex items-center justify-center self-center h-screen">
+    <div class="flex items-center justify-center self-center h-full">
         <div class="min-w-[300px]">
             <h3 class="mb-5 text-lg font-medium text-gray-900 dark:text-white">S'inscrire</h3>
             <!-- Radio Type -->
@@ -57,35 +66,35 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prénom</label>
                         <input type="text" id="first_name" name="first_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Tom" required />
+                            placeholder="Ex : Tom" required />
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="last_name"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
                         <input type="text" id="last_name" name="last_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Holland" required />
+                            placeholder="Ex : Holland" required />
                     </div>
                 </div>
                 <div class="mb-5">
-                    <label for="mail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Addresse
+                    <label for="mail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Adresse
                         email</label>
                     <input type="email" id="mail" name="mail"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : tom.holland@sfr.fr" required />
                 </div>
                 <div class="mb-5">
                     <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numéro de
                         téléphone</label>
                     <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : 0122334455" required />
                 </div>
                 <div class="mb-5">
                     <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ville</label>
                     <input type="text" id="town" name="town"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : Cambrai" required />
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-5 group">
@@ -93,14 +102,14 @@
                             Postal</label>
                         <input type="number" id="postcode" name="postcode" pattern="[0-9]{5}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required />
+                            placeholder="Ex : 54720" required />
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="country"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pays</label>
                         <input type="text" id="country" name="country"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required />
+                            placeholder="Ex : France" required />
                     </div>
                 </div>
 
@@ -109,7 +118,7 @@
                         passe</label>
                     <input type="password" id="password" maxlength="24" minlength="8"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : MonM0!DePass3" required />
                 </div>
                 <div class="flex items-start mb-5">
                     <div class="flex items-center h-5">
@@ -133,34 +142,34 @@
                         Nom de l'entreprise</label>
                     <input type="text" id="companyName" name="companyName"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : Paper Incorporation" required />
                 </div>
                 <div class="mb-5">
                     <label for="siren" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         SIREN</label>
                     <input type="number" id="siren" name="siren" minlength="9"maxlength="9"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : 234567968" required />
                 </div>
                 <div class="mb-5">
-                    <label for="mail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Addresse
+                    <label for="mail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Adresse
                         email</label>
                     <input type="email" id="mail" name="mail"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : entrepise@paper.fr" required />
                 </div>
                 <div class="mb-5">
                     <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numéro de
                         téléphone</label>
                     <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : 0654986735" required />
                 </div>
                 <div class="mb-5">
                     <label for="town" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ville</label>
                     <input type="text" id="town" name="town"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : Paris Cedex" required />
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-5 group">
@@ -168,14 +177,14 @@
                             Postal</label>
                         <input type="number" id="postcode" name="postcode" pattern="[0-9]{5}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required />
+                            placeholder="Ex : 75001" required />
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="country"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pays</label>
                         <input type="text" id="country" name="country"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required />
+                            placeholder="Ex : France" required />
                     </div>
                 </div>
 
@@ -184,7 +193,7 @@
                         passe</label>
                     <input type="password" id="password" maxlength="24" minlength="8"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required />
+                        placeholder="Ex : ?MonEntrEpr1se!" required />
                 </div>
                 <div class="flex items-start mb-5">
                     <div class="flex items-center h-5">
@@ -201,7 +210,7 @@
                 </button>
             </form>
             <hr class="my-5">
-            <a href="form_signin.php" type="button" class="py-2.5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Se connecter avec un compte existant</a>
+            <a href="formSignIn.php" type="button" class="py-2.5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Se connecter avec un compte existant</a>
         </div>
     </div>
 </body>

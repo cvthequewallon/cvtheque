@@ -41,7 +41,7 @@ if(isset($_POST["Validate"])) {
                     ]);
                     if ($stmt->rowCount() > 0) {
                         $pdo->commit();
-                        Header('Location:../view/dashboard/waiting_company.php');
+                        Header('Location:../view/dashboard/waitingCompany.php');
                     } else {
                         echo "Erreur lors de l'acceptation.";
                     }
@@ -52,7 +52,7 @@ elseif(isset($_POST['Refuse'])) {
     $stmt = $pdo->prepare($query);
     $stmt->execute([":id_waiting"=>$id_waiting]);
 
-    Header("Location:../view/dashboard/waiting_company.php");
+    Header("Location:../view/dashboard/waitingCompany.php");
 
 }
 

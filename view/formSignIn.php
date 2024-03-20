@@ -1,5 +1,14 @@
+<?php
+    //MESSAGE OF INSCRIPTION
+    session_start();
+    if (isset ($_SESSION['messageSignValidation'])) {
+        echo "{$_SESSION['messageSignValidation']}";
+        unset($_SESSION["messageSignValidation"]);
+    }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +16,9 @@
     <link rel="stylesheet" href="../stylesheets/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </head>
-<body>
-    <header></header>
+<body> 
     <main>
-        <div class="flex items-center justify-center self-center h-screen">
+        <div class="flex items-center justify-center self-center h-full">
         <div>
         <h1 class="absolute top-4 text-center">Authentification requise</h1>
             <div class="col-span-1 min-w-[300px]">
@@ -34,7 +42,7 @@
                 </form>
             </div>
             <hr class="my-5">
-            <a href="form_signup.php" type="button" class="py-2.5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Créer un compte</a>
+            <a href="formSignUp.php" type="button" class="py-2.5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Créer un compte</a>
         </div>
         </div>
     </main>

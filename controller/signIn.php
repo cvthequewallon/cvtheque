@@ -25,10 +25,12 @@ function checkEmailExistence($mail, $table = "user_signin") {
         // Store the user id
         $_SESSION['id_user'] = $result['id_user'];
         echo $_SESSION['id_user'];
+        header('location:../view/dashboardStudent.php');
       }
     } catch (PDOException $e) {
       $db->rollBack();
-      echo "Erreur lors de la connexion : " . $e->getMessage();
+      $_SESSION['messageSignValidation'] = "Erreur lors de la connexion, merci de contacter l'équipe de la CVthèque";
+      header('location:../view/formSignIn.php');
   }
   }
 
@@ -44,10 +46,12 @@ function checkEmailExistence($mail, $table = "user_signin") {
         // Store the user id
         $_SESSION['id_company'] = $result['id_company'];
         echo $_SESSION['id_company'];
+        header('location:../view/dashboardCompany.php');
       }
     } catch (PDOException $e) {
       $db->rollBack();
-      echo "Erreur lors de la connexion : " . $e->getMessage();
+      $_SESSION['messageSignValidation'] = "Erreur lors de la connexion, merci de contacter l'équipe de la CVthèque";
+      header('location:../view/formSignIn.php');
   }
 }
   // Check for teacher email:
@@ -62,15 +66,15 @@ function checkEmailExistence($mail, $table = "user_signin") {
         // Store the user id
         $_SESSION['id_admin'] = $result['id_admin'];
         echo $_SESSION['id_admin'];
-        header("Location:../view/dashboard/waiting_company.php");
+        header("Location:../view/dashboard/waitingCompany.php");
       }
     } catch (PDOException $e) {
       $db->rollBack();
-      echo "Erreur lors de la connexion : " . $e->getMessage();
+      $_SESSION['messageSignValidation'] = "Erreur lors de la connexion, merci de contacter l'équipe de la CVthèque";
+      header('location:../view/formSignIn.php');
     }
     }else {
-      Echo "Identifiant ou mot de passe invalide";
+      $_SESSION['messageSignValidation'] = "Identifiant ou mot de passe invalide";
+      header('location:../view/formSignIn.php');
     }
-
-
 ?>

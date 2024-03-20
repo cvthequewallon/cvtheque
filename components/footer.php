@@ -8,10 +8,10 @@
                 <a href="#" class="hover:underline me-4 md:me-6">Accueil</a>
             </li>
             <li>
-                <a href="../view/form_signup.php" class="hover:underline me-4 md:me-6">Inscription</a>
+                <a href="../view/formSignUp.php" class="hover:underline me-4 md:me-6">Inscription</a>
             </li>
             <li>
-                <a href="../view/form_signin.php" class="hover:underline me-4 md:me-6">Connexion</a>
+                <a href="../view/formSignIn.php" class="hover:underline me-4 md:me-6">Connexion</a>
             </li>
 
             <li>
