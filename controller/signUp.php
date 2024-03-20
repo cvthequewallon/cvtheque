@@ -94,13 +94,9 @@ if (isset ($_POST['submitStudent'])) {
     } else {
 
         //if social reason is not good SirenVerify is not defind
-        /*if ($sirenVerify == "") {
-            $_SESSION['messageSignValidation'] = "Veuillez vérifier votre raison sociale et réessayer";
-            header('location:../view/formSignUp.php');
-
-        } else {
+        //if ($sirenVerify == "") {
             //verify SIREN of API
-            if ($siren == $sirenVerify) {*/
+            //if ($siren == $sirenVerify) {
                 try {
                     $pdo->beginTransaction();
                     $stmt = $pdo->prepare("INSERT INTO waiting_list (company_name, siren, mail, password, phone, town, postcode, country, waiting_since) VALUES (:company_name, :siren, :mail, :hashed_password, :phone, :town, :postcode, :country, CURRENT_TIMESTAMP)");
@@ -117,6 +113,8 @@ if (isset ($_POST['submitStudent'])) {
                     if ($stmt->rowCount() > 0) {
                         $pdo->commit();
                         $_SESSION['messageSignValidation'] = "Inscription entreprise réussie.";
+                        $_SESSION['company_mail'] = $mail;
+                        require "mail/mailWaitingList.php";
                         header('location:../index.php');
                     } else {
                         $_SESSION['messageSignValidation'] = "Erreur lors de l'inscription, merci de contacter l'équipe de la CVthèque";
@@ -132,6 +130,11 @@ if (isset ($_POST['submitStudent'])) {
                 $_SESSION['messageSignValidation'] = "Le numéro de SIREN saisi n'est pas le même que celui associé à votre raison sociale, veuillez vérifier votre raison sociale et réessayer";
                 header('location:../view/formSignUp.php');
             }
+        }
+        //If siren is not defind
+        else {
+            $_SESSION['messageSignValidation'] = "Veuillez vérifier votre raison sociale et réessayer";
+            header('location:../view/formSignUp.php');
         }*/
     }
 }
